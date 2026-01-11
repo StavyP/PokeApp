@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Scissors, Sparkles, Filter, ShoppingBag, Camera } from 'lucide-react';
+import './App.css';
 
 const PeramoreWebsite = () => {
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbylfjCuHnBv9DLy1sepEwGo-yd7QXMf5oZiWGE9lxj4Xgg6ZSGnKmMxRfGHfkgrIBzV/exec";
@@ -139,7 +140,7 @@ const PeramoreWebsite = () => {
   };
 
   return (
-    <div className="font-['Poppins'] bg-gradient-to-br from-slate-50 to-stone-100 relative overflow-hidden">
+    <div className="font-poppins bg-gradient-to-br from-slate-50 to-stone-100 relative overflow-hidden">
       {/* Animations de fond */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {stitches.map(stitch => (
@@ -162,96 +163,7 @@ const PeramoreWebsite = () => {
         ))}
       </div>
 
-      <style>{`
-        @keyframes float {
-          0%, 100% { 
-            transform: translateY(0px) rotate(0deg);
-            opacity: 0.05;
-          }
-          50% { 
-            transform: translateY(-30px) rotate(15deg);
-            opacity: 0.08;
-          }
-        }
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        @keyframes scaleIn {
-          from {
-            opacity: 0;
-            transform: scale(0.9);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-        @keyframes zoomIn {
-          from {
-            opacity: 0;
-            transform: scale(0.8) rotate(-5deg);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
-          }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        .animate-fadeInUp {
-          animation: fadeInUp 1s ease-out;
-        }
-        .animate-slideInLeft {
-          animation: slideInLeft 0.8s ease-out;
-        }
-        .animate-slideInRight {
-          animation: slideInRight 0.8s ease-out;
-        }
-        .animate-scaleIn {
-          animation: scaleIn 0.3s ease-out;
-        }
-        .animate-zoomIn {
-          animation: zoomIn 0.6s ease-out;
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.2s ease-out;
-        }
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
-        .stagger-6 { animation-delay: 0.6s; }
-      `}</style>
+  
 
       {/* MODAL IMAGE */}
       {showImageModal && selectedImage && (
@@ -301,17 +213,27 @@ const PeramoreWebsite = () => {
       )}
 
       {/* Header */}
-      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-lg shadow-md z-50 border-b-2 border-slate-200">
+      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-lg shadow-https://imgur.com/a/2aCuJFqmd z-50 border-b-2 border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20 md:h-24">
             <div className="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => scrollToSection('accueil')}>
               <div className="relative">
-                <Sparkles className="w-8 h-8 md:w-9 md:h-9 text-amber-600" />
-                <div className="absolute inset-0 w-8 h-8 md:w-9 md:h-9 text-amber-600 animate-ping opacity-20">
-                  <Sparkles className="w-8 h-8 md:w-9 md:h-9" />
+              <div class="logo-container">
+                <div class="sparkle-group tl">
+                  <div class="sparkle large"><div class="circle"></div></div>
+                  <div class="sparkle"><div class="star"></div></div>
+                  <div class="sparkle"><div class="star"></div></div>
+                  <div class="sparkle"><div class="star"></div></div>
+                </div>
+                <div class="peramore-text">Peramore</div>
+                <div class="sparkle-group br">
+                  <div class="sparkle"><div class="star"></div></div>
+                  <div class="sparkle"><div class="star"></div></div>
+                  <div class="sparkle"><div class="star"></div></div>
+                  <div class="sparkle large"><div class="circle"></div></div>
                 </div>
               </div>
-              <h1 className="text-2xl md:text-4xl font-bold text-slate-800 italic tracking-tight">Peramore</h1>
+              </div>
             </div>
             
             <nav className="hidden lg:flex items-center space-x-1">
@@ -346,11 +268,11 @@ const PeramoreWebsite = () => {
           <div className="lg:hidden bg-white border-t border-slate-200 shadow-2xl animate-fadeInUp">
             <nav className="flex flex-col py-6 px-4 space-y-2 max-w-md mx-auto">
               {[
-                { label: 'Accueil', id: 'accueil', icon: '🏠' },
-                { label: 'Collection', id: 'la-collection', icon: '✂️' },
-                { label: 'Histoire', id: 'notre-histoire', icon: '📖' },
-                { label: 'Galerie', id: 'galerie', icon: '🖼️' },
-                { label: 'Contact', id: 'contact', icon: '✉️' }
+                { label: 'Accueil', id: 'accueil'},
+                { label: 'Collection', id: 'la-collection'},
+                { label: 'Histoire', id: 'notre-histoire'},
+                { label: 'Galerie', id: 'galerie'},
+                { label: 'Contact', id: 'contact' }
               ].map(item => (
                 <button
                   key={item.id}
@@ -368,7 +290,13 @@ const PeramoreWebsite = () => {
 
       {/* Section Héro */}
       <section id="accueil" className="relative min-h-screen flex items-center justify-center pt-16 md:pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-blue-50 to-amber-50 opacity-70" />
+        <div 
+          className="absolute inset-0 opacity-50 bg-cover bg-center" 
+          style={{ 
+            backgroundImage: "url('https://i.imgur.com/koc5ofM.jpeg')",
+            backgroundBlendMode: "overlay" 
+          }}
+        />
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <div className="flex justify-center mb-8 animate-fadeInUp">
             <div className="relative">
@@ -459,7 +387,7 @@ const PeramoreWebsite = () => {
                       </div>
                     )}
                     <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-full font-bold shadow-lg">
-                      {product.prix}
+                      {product.prix}€
                     </div>
                   </div>
                   <div className="p-6">
@@ -506,9 +434,11 @@ const PeramoreWebsite = () => {
             </div>
             <div className={`order-1 md:order-2 ${visibleElements.has('notre-histoire') ? 'animate-slideInRight' : 'opacity-0'}`}>
               <div className="relative">
-                <div className="bg-gradient-to-br from-blue-400 via-slate-300 to-amber-300 rounded-3xl h-96 shadow-2xl overflow-hidden flex items-center justify-center">
-                  <Scissors className="w-40 h-40 text-white opacity-40 transform -rotate-12" />
-                </div>
+                <div 
+                  className="bg-gradient-to-br from-blue-400 via-slate-300 to-amber-300 rounded-3xl h-96 shadow-2xl overflow-hidden flex items-center justify-center bg-cover bg-center"
+                  style={{ backgroundImage: "url('https://i.imgur.com/AbCPit3.png')" }}
+                >
+                  </div>
               </div>
             </div>
           </div>

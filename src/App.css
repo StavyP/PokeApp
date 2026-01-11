@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+:root {
+  --pink: #e480f3;
+  --dark: #1e293b;
+  --bg: #f8f9fa;
+}
+
+.logo-container {
+  position: relative;
+  background: linear-gradient(135deg, #fff, var(--bg));
+  border: 3px solid var(--pink);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 0 45px;
+}
+
+.peramore-text {
+  font-family: 'Dancing Script';
+  font-size: 48px;
+  color: var(--dark);
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Conteneurs Sparkles */
+.sparkle-group {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  top: 0;
+}
+
+.tl { left: -28px; }
+.br { right: -28px; }
+
+.sparkle {
+  width: 16px; 
+  height: 16px;
+  animation: sparkle-anim 2s infinite ease-in-out;
+  position: relative;
+}
+
+.large { 
+  width: 20px; 
+  height: 20px; 
+}
+
+/* Dessin des étoiles */
+.star, .circle { 
+  width: 100%; 
+  height: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.star::before, .star::after {
+  content: ''; 
+  position: absolute; 
+  background: var(--dark);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.star::before { width: 100%; height: 25%; }
+.star::after { width: 25%; height: 100%; }
+
+.circle { 
+  background: var(--dark); 
+  border-radius: 50%; 
+}
+
+/* Étoile dans le cercle légèrement plus grosse */
+.circle::before, .circle::after {
+  content: ''; 
+  position: absolute; 
+  background: var(--bg);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.circle::before { 
+  width: 65%; 
+  height: 22%; 
+}
+
+.circle::after { 
+  width: 22%; 
+  height: 65%; 
+}
+
+@keyframes sparkle-anim {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.8); opacity: 0.6; }
+}
+
+/* Délais d'animation */
+.sparkle:nth-child(2) { animation-delay: 0.3s; }
+.sparkle:nth-child(3) { animation-delay: 0.6s; }
+.sparkle:nth-child(4) { animation-delay: 0.9s; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .logo-container {
+    left: 20%;
+    height: 54px;
+    padding: 0 40px;
+    border-width: 2.5px;
+  }
+
+  .peramore-text { 
+    font-size: 42px; 
+    letter-spacing: 2.5px;
+  }
+  
+  .tl { left: -26px; }
+  .br { right: -26px; }
+  .sparkle { width: 14px; height: 14px; }
+  .large { width: 18px; height: 18px; }
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    left: 20%;
+    height: 48px;
+    padding: 0 35px;
+    border-width: 2px;
+  }
+
+  .peramore-text { 
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+  
+  .tl { left: -24px; }
+  .br { right: -24px; }
+  .sparkle { width: 13px; height: 13px; }
+  .large { width: 16px; height: 16px; }
+}
+
+@media (max-width: 480px) {
+  .logo-container {
+    left: 20%;
+    height: 42px;
+    padding: 0 28px;
+    border-width: 2px;
+  }
+
+  .peramore-text { 
+    font-size: 32px;
+    letter-spacing: 1.5px;
+  }
+  
+  .tl { left: -22px; }
+  .br { right: -22px; }
+  .sparkle { width: 12px; height: 12px; }
+  .large { width: 14px; height: 14px; }
+}
